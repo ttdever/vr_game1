@@ -1,0 +1,12 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes: []
+  m_configObjects:
+    Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 08a94ce3a6bb4f44cb2413606ecba778, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 1dddae726a0e6fc4ea8588ceb9965691, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 6cb15d291e8537c409f0763ae4acae26, type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: db6427cd0ef71064991f9dde5d143075, type: 2}
