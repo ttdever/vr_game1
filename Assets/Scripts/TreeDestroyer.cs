@@ -25,8 +25,7 @@ public class TreeDestroyer : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.CompareTag("Terrain") && _parentRb.velocity.magnitude > 26f)
-            DestroyTree(transform.position);
+        if (collision.collider.CompareTag("Terrain")) DestroyTree(transform.position);
     }
 
     private void DestroyTree(Vector3 positionOfHit)

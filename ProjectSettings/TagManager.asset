@@ -8,6 +8,9 @@ TagManager:
   - Ground
   - Tree
   - Terrain
+  - ResourceTrigger
+  - ResourceSpawner
+  - Resource
   layers:
   - Default
   - TransparentFX
