@@ -5,6 +5,8 @@ using UnityEngine;
 public class TreeDestroyer : MonoBehaviour
 {
     [SerializeField] private GameObject chopParticle;
+    [SerializeField] private GameObject woodResource;
+    
     private Terrain _terrain;
     private TerrainData _terrainData;
     private TerrainData _terrainDataBackup;
@@ -13,6 +15,7 @@ public class TreeDestroyer : MonoBehaviour
     private const float MaxDistanceToTree = 3.0f;
     private int _damage;
     private Rigidbody _parentRb;
+    private AudioManager _audioManager;
 
     private void Awake()
     {
@@ -21,6 +24,7 @@ public class TreeDestroyer : MonoBehaviour
         _terrainData = _terrain.terrainData;
         _terrainDataBackup = _terrainData;
         _terrainCollider = _terrain.GetComponent<TerrainCollider>();
+        _audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -49,12 +53,14 @@ public class TreeDestroyer : MonoBehaviour
         {
             _damage = _damagedTrees[selectedTree];
         }
+        _audioManager.Play("Axe");
 
         _damage--;
         Destroy(Instantiate(chopParticle, positionOfHit, Quaternion.identity), 1.0f);
 
         if (_damage <= 0)
         {
+            Instantiate(woodResource, positionOfHit, Quaternion.identity);
             instances.RemoveAt(treeInstanceToDestroyIndex);
             _terrainData.treeInstances = instances.ToArray();
             _terrainCollider.enabled = false;

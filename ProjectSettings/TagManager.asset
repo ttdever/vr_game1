@@ -11,6 +11,7 @@ TagManager:
   - ResourceTrigger
   - ResourceSpawner
   - Resource
+  - Hammer
   layers:
   - Default
   - TransparentFX
@@ -27,14 +28,14 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - Pickable
+  - Log
+  - Player
   - Tree
   - Ground
   - Animal
   - Axe
-  - 
+  - Hammer
   - 
   - 
   - 

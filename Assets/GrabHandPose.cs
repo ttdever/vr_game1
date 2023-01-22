@@ -12,6 +12,7 @@ public class GrabHandPose : MonoBehaviour
     private Quaternion _finalHandRot;
     private Quaternion[] _startBonesRot;
     private Quaternion[] _finalBonesRot;
+    private AudioManager _audioManager;
 
     private void Awake()
     {
@@ -21,6 +22,7 @@ public class GrabHandPose : MonoBehaviour
         _handPos = handGhost.GetComponent<HandData>();
         _handPos.SetHandRoot(handGhost.transform);
         _handPos.gameObject.SetActive(false);
+        _audioManager = FindObjectOfType<AudioManager>();
     }
 
     private void UnsetPos(BaseInteractionEventArgs args)
@@ -40,6 +42,7 @@ public class GrabHandPose : MonoBehaviour
 
             SetHandDataValues(handData, _handPos);
             SetHandData(handData, _finalHandPos, _finalHandRot, _finalBonesRot);
+            _audioManager.Play("Grab");
         }
     }
 
